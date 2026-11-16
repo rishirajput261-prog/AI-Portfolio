@@ -1,0 +1,130 @@
+:root {
+  --bg-primary: #080808;
+  --bg-secondary: #111111;
+  --bg-card: #171717;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --accent-primary: #ff5722;
+  --accent-secondary: #c62828;
+  --border-hairline: rgba(255, 255, 255, 0.12);
+}
+
+html {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080808;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-heading {
+  font-family: 'Sora', sans-serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle architectural background vertical lines inspired by dark editorial layouts */
+.editorial-grid-lines {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.045) 1px,
+    transparent 1px
+  );
+  background-size: 25% 100%;
+}
+
+/* Custom subtle radial illumination */
+.hero-orange-glow {
+  background: radial-gradient(
+    ellipse 58% 48% at 50% 62%,
+    rgba(255, 87, 34, 0.28) 0%,
+    rgba(198, 40, 40, 0.16) 38%,
+    rgba(8, 8, 8, 0) 75%
+  );
+}
+
+.hero-corner-glow {
+  background: radial-gradient(
+    circle at 8% 12%,
+    rgba(255, 112, 67, 0.18) 0%,
+    rgba(198, 40, 40, 0.06) 28%,
+    rgba(8, 8, 8, 0) 60%
+  );
+}
+
+.card-accent-glow {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 87, 34, 0.14) 0%,
+    rgba(198, 40, 40, 0.06) 45%,
+    transparent 75%
+  );
+}
+
+/* Animated nav link underline */
+.nav-link-underline {
+  position: relative;
+}
+
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1.5px;
+  background: linear-gradient(90deg, #ff5722, #c62828);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link-underline:hover::after,
+.nav-link-underline[data-active='true']::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid #ff5722;
+  outline-offset: 3px;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Clean resume print styling */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+}
